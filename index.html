@@ -3,65 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Chat</title>
+    <title>About Cat0Boy</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f8f9fa;
         }
         .container {
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 50px auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            background-color: #fff;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        #messages {
-            margin-bottom: 20px;
-            overflow-y: scroll;
-            height: 300px;
-            border: 1px solid #ddd;
-            padding: 10px;
+        h1 {
+            text-align: center;
+            color: #333;
         }
-        #messageInput {
-            width: calc(100% - 80px);
-            margin-right: 10px;
+        p {
+            line-height: 1.6;
+            color: #555;
         }
-        #sendButton {
-            width: 70px;
+        .about-me {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .about-me img {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            border-radius: 50%;
+        }
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div id="messages"></div>
-        <input type="text" id="messageInput" placeholder="Type your message...">
-        <button id="sendButton">Send</button>
+        <h1>About Cat0Boy</h1>
+        <div class="about-me">
+            <img src="https://images-ext-1.discordapp.net/external/mvAtcknblXGRdq6Fvd06LSD1Rdj1in8KQRWzxzR9ZFE/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1236286999766503480/9ea9c8c8271ac6186232f46d48841b6e.png?format=webp&quality=lossless&width=416&height=416" alt="Cat0Boy's Profile Picture">
+            <p>Hello! I'm Cat0Boy, a passionate coder learning Python. Welcome to my GitHub Pages website.</p>
+            <p>I run a Discord server called <a href="https://discord.gg/fq4hYM98R3">Flame Host</a> where we discuss coding, technology, and more!</p>
+            <p>You can also find me on YouTube at my channel <a href="https://www.youtube.com/channel/UCkE04Q6RTloJaUDW24SV4lg">Cat Boy</a>, where I share tutorials and coding-related content.</p>
+            <p>Feel free to connect with me on GitHub and explore my projects!</p>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/Cat0Boy">GitHub</a>
+            <a href="https://www.youtube.com/channel/UCkE04Q6RTloJaUDW24SV4lg">YouTube</a>
+            <a href="https://discord.gg/fq4hYM98R3">Discord Server</a>
+        </div>
     </div>
-
-    <script>
-        var messagesDiv = document.getElementById('messages');
-        var messageInput = document.getElementById('messageInput');
-        var sendButton = document.getElementById('sendButton');
-
-        sendButton.addEventListener('click', function() {
-            var message = messageInput.value.trim();
-            if (message !== '') {
-                var messageElement = document.createElement('div');
-                messageElement.textContent = 'You: ' + message;
-                messagesDiv.appendChild(messageElement);
-                messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                messageInput.value = '';
-            }
-        });
-
-        messageInput.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                sendButton.click();
-            }
-        });
-    </script>
 </body>
 </html>
