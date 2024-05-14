@@ -3,36 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My GitHub Pages Website</title>
+    <title>Simple Chat</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
         }
         .container {
-            max-width: 800px;
-            margin: 50px auto;
+            max-width: 600px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
+            border: 1px solid #ccc;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
         }
-        h1 {
-            text-align: center;
+        #messages {
+            margin-bottom: 20px;
+            overflow-y: scroll;
+            height: 300px;
+            border: 1px solid #ddd;
+            padding: 10px;
         }
-        p {
-            line-height: 1.6;
+        #messageInput {
+            width: calc(100% - 80px);
+            margin-right: 10px;
+        }
+        #sendButton {
+            width: 70px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My GitHub Pages Website</h1>
-        <p>This is a simple HTML template file for your GitHub Pages website.</p>
-        <p>GitHub Pages allows you to host static websites directly from your GitHub repository.</p>
-        <p>Feel free to customize this template and add your own content.</p>
+        <div id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Type your message...">
+        <button id="sendButton">Send</button>
     </div>
+
+    <script>
+        var messagesDiv = document.getElementById('messages');
+        var messageInput = document.getElementById('messageInput');
+        var sendButton = document.getElementById('sendButton');
+
+        sendButton.addEventListener('click', function() {
+            var message = messageInput.value.trim();
+            if (message !== '') {
+                var messageElement = document.createElement('div');
+                messageElement.textContent = 'You: ' + message;
+                messagesDiv.appendChild(messageElement);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                messageInput.value = '';
+            }
+        });
+
+        messageInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+    </script>
 </body>
 </html>
